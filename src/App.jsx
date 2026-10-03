@@ -16,7 +16,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Router>
+    <Router basename="/learning-react">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/searchbar" element={<SearchBar />} />

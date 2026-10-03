@@ -1,0 +1,48 @@
+.home-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.home-button:hover {
+  background-color: #45a049;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* align-items: center; */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid grey;
+    background-color: white;
+    color: rgb(179, 176, 176);
+    gap: 2px;
+    border-radius: 5px;
+
+}
+.input-box{
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+}
+.input-box:focus{
+    outline: none;
+}
+.input-error{
+    color: red;
+    font-size: 12px;
+    padding-left: 5px;
+}

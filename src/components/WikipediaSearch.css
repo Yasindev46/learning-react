@@ -1,0 +1,240 @@
+.wikipedia-page {
+  min-height: 100vh;
+  padding: 48px clamp(20px, 5vw, 72px) 64px;
+  color: #263238;
+  background: #f2efe8;
+  text-align: left;
+}
+
+.wikipedia-header {
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+
+.wikipedia-home-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #176b87;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wikipedia-kicker {
+  margin: 0 0 10px;
+  color: #d05a3a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wikipedia-header h1 {
+  max-width: 620px;
+  margin: 0;
+  color: #173f4b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+.wikipedia-intro {
+  margin: 16px 0 0;
+  color: #647277;
+  font-size: 1.05rem;
+}
+
+.wikipedia-form,
+.wikipedia-content {
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wikipedia-form {
+  padding: 22px;
+  border: 1px solid #d7d0c5;
+  border-radius: 8px;
+  background: #fffdf8;
+}
+
+.wikipedia-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #173f4b;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.wikipedia-search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.wikipedia-search-row input {
+  min-width: 0;
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid #b9c4c1;
+  border-radius: 4px;
+  color: #263238;
+  background: #fff;
+  font: inherit;
+}
+
+.wikipedia-search-row input:focus {
+  outline: 3px solid #b8dfdf;
+  border-color: #176b87;
+}
+
+.wikipedia-search-row button {
+  padding: 0 24px;
+  border: 0;
+  border-radius: 4px;
+  color: #fffdf8;
+  background: #d05a3a;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.wikipedia-search-row button:hover:not(:disabled) {
+  background: #b9482c;
+}
+
+.wikipedia-search-row button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.wikipedia-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(240px, 0.75fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.wikipedia-results,
+.recent-searches {
+  min-width: 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #173f4b;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #173f4b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.section-heading span {
+  color: #7b8888;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.wikipedia-message {
+  color: #7b8888;
+  line-height: 1.5;
+}
+
+.error-message {
+  color: #b9482c;
+}
+
+.result-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.wikipedia-result {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid #d7d0c5;
+  border-radius: 6px;
+  color: inherit;
+  background: #fffdf8;
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.wikipedia-result:hover {
+  border-color: #176b87;
+  transform: translateY(-2px);
+}
+
+.result-title {
+  color: #176b87;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.result-description {
+  color: #647277;
+  line-height: 1.45;
+}
+
+.result-url {
+  color: #d05a3a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.recent-searches ol {
+  display: grid;
+  gap: 0;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recent-searches li {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid #d7d0c5;
+}
+
+.recent-searches strong {
+  color: #263238;
+  overflow-wrap: anywhere;
+}
+
+.recent-searches time {
+  color: #7b8888;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .wikipedia-page {
+    padding-top: 32px;
+  }
+
+  .wikipedia-content {
+    grid-template-columns: 1fr;
+  }
+
+  .wikipedia-search-row {
+    flex-direction: column;
+  }
+
+  .wikipedia-search-row button {
+    min-height: 48px;
+  }
+}

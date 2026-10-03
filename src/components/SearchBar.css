@@ -1,0 +1,40 @@
+.search-input {
+  width: 500px;
+  padding: 5px;
+  height: 20px;
+}
+
+.results {
+  width: 500px;
+  padding: 5px;
+  margin: auto;
+  border: 1px solid #ccc;
+}
+.result-item{
+    text-align: left;
+}
+.result-item:hover {
+    background-color: #d8d6d6;
+    cursor: pointer;
+}
+
+.home-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.home-button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,70 @@
+.attendance-container {
+  max-width: 520px;
+  margin: 24px auto;
+  padding: 18px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.attendance-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+select,
+input[type='date'] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.student-list-wrapper {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.student-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.student-row {
+  margin: 6px 0;
+}
+
+.save-btn {
+  border: none;
+  background: #1976d2;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.save-btn:hover {
+  filter: brightness(0.9);
+}
+
+.summary {
+  margin-top: 12px;
+  font-weight: 600;
+}

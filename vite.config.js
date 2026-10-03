@@ -4,5 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/learning/', // Set the base path for GitHub Pages deployment
+  base: '/learning/', 
+   server: {
+    port: 3001,
+  },
 })

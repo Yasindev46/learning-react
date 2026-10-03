@@ -1,32 +1,34 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Profile.css'
-import {nestedData} from "../mockData.js/mockData.js"
+import NestedDisplay from './NestedDisplay';
+import {nestedData} from '../mockData.js/mockData.js'
 
-function Profile() {
+function Display() {
+  const [count, setCount] = useState(0)
+  const [data,setData]=useState(nestedData)
+  const [checked,setChecked]=useState({})
+
+  const handleChange=(isChecked,node)=>{
+    setChecked(prev=>{
+      const newState={...prev,[node.id]:isChecked}
+      const updateChild=(node)=>{
+        node.children?.forEach((child)=>{
+          newState[child.id]=isChecked
+          child.children && updateChild(child)
+        } )
+      }
+      updateChild(node)
+      return newState
+    })
+  }
+ 
   return (
-    <div style={{marginLeft:"20px"}}>
-      <h1>Nested Page</h1>
+    <div>
+      <h1>Nested Checkbox</h1>
       <Link to="/"><button className="home-button">Home</button></Link>
-      {nestedData.map((item)=>{
-        return(
-          <div style={{marginLeft:"20px", position:"absolute", left:"20px"}}>
-            <input type="checkbox" id={item.id} />
-            <span>{item.name}</span>
-            {item.children && item.children.map((child)=>{
-              return(
-                <div style={{marginLeft:"20px"}}>
-                  <input type="checkbox" id={child.id} />
-                  <span>{child.name}</span>
-                </div>
-              )
-            })}
-          </div>
-        )
-
-      })}
+   <NestedDisplay data={data} checked={checked} setChecked={setChecked}/>
     </div>
   )
 }
-
-export default Profile
+export default Display

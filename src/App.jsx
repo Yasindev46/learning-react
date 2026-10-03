@@ -11,9 +11,10 @@ import Attendance from './attendance/Attendance'
 import Timer from './components/Timer'
 import Fetch from './components/Fetch'
 import WikipediaSearch from './components/WikipediaSearch'
+import {nestedData} from './mockData.js/mockData.js'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <Router basename="/learning-react">

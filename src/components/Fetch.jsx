@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Fetch = () => {
     const [data, setData] = React.useState([]);
@@ -19,14 +20,21 @@ const Fetch = () => {
     }, []);
 
     return (
-        <div>
+        <div className="fetch-container" style={{ padding: '20px' }}>
+            <h1>Fetch Page</h1>
+            <Link to="/"><button className="home-button">Home</button></Link>
+            <h2>Posts</h2>
+           <div div style={{ display: 'flex',flexDirection: 'column', alignItems: 'flex-start' }}>
           {[...new Set(data.map((item) => item.userId))].map((userId) => (
-            <div key={userId}>
+            <div key={userId} style={{ marginBottom: '10px' }}>
               <button
                 type="button"
                 onClick={() => setSelectedUserId(selectedUserId === userId ? null : userId)}
+                style={{
+                  backgroundColor: selectedUserId === userId ? 'yellow' : 'lightgray',
+                  margin: '5px',padding: '5px 10px',border: '1px solid black',borderRadius: '5px',cursor: 'pointer'}}
               >
-                {userId}
+                Post {userId}
               </button>
               {selectedUserId === userId && (
                 <div>
@@ -43,6 +51,7 @@ const Fetch = () => {
               )}
             </div>
           ))}
+          </div>
         </div>
     );
 }

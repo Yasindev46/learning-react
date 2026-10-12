@@ -14,6 +14,23 @@ function OTP() {
     inputRef.current[0]?.focus();
   }, []);
 
+  const sendNotification=()=>{
+    if(!"Notification" in window){
+      alert("This browser does not support desktop notification");
+      return;
+    }
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        const notification = new Notification("OTP Matched Successfully!");
+        notification.onclick = () => {
+          // Handle notification click
+          navigate("/searchbar");
+          
+        };
+      }
+    });
+  }
+
   const handleChange = (e, index) => {
     const val = e.target.value.trim();
     if (isNaN(val)) return;
@@ -34,7 +51,7 @@ function OTP() {
     if(generatedOtp===inputArr.join("")){
         alert("OTP Matched Successfully!");
         navigate("/");
-
+        sendNotification()
     }else{
         alert("OTP did not match or Expired. Please try again.");
     }

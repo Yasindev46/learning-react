@@ -7,6 +7,7 @@ function Autosave() {
   const [oddEvenValue, setOddEvenValue] = React.useState("");
   const [oddEven, setOddEven] = React.useState("");
   const [paraValue,setParaValue]= React.useState("");
+  const [error,setError]= React.useState("");
   useEffect(() => {
     const savedValue = localStorage.getItem("autosaveInput");
     if (savedValue) {
@@ -25,10 +26,12 @@ function Autosave() {
 const handleFindOddEven = () => {
     const num = parseInt(oddEvenValue);
     console.log("===>num",num);
-    if(num%2===0){
+    if(num%2===0 && !isNaN(num)){
         setOddEven("Even");
-    }else{
+    }else if(num%2!==0 && !isNaN(num)){
         setOddEven("Odd");
+    }else if(isNaN(num)){
+        setError("Invalid number");
     }
   };
 
@@ -36,7 +39,6 @@ const handleFindOddEven = () => {
     const value = e.target.value;
     const capitalizedValue = value.split('.').map(sentence => {
       const trimmed = sentence.trim();
-      console.log("===>trimmed",trimmed);
       if (trimmed.length > 0) {
         return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
       }
@@ -51,7 +53,8 @@ const handleFindOddEven = () => {
       <Link to="/">
         <button className="home-button">Home</button>
       </Link>
-      <span>Autosave input box </span>
+      <span>Autosave input values on local storage. </span> <br/>
+
       <input
         type="text"
         placeholder="Enter text"
@@ -61,12 +64,13 @@ const handleFindOddEven = () => {
       <button onClick={handleClear}>Clear</button>
       <br /> <hr />
       <h3>Find Odd or Even number</h3>
-      <input type="text" onChange={(e)=>setOddEvenValue(e.target.value)}/> 
+      <input type="text" value={oddEvenValue} onChange={(e)=>{setOddEvenValue(e.target.value);setError("")}}/> 
       <button onClick={handleFindOddEven}>Find</button>
-      {oddEven &&  <h3>The given number is {oddEven} value</h3>}
+      {oddEven && <h3>The given number is {oddEven} value</h3>}
+      {error && <h3>{error}</h3>}
       <br /><hr />
       <h3>Auto capital</h3>
-      <input type="text" onChange={handleCapitalize}/>
+      <input type="text" value={paraValue} onChange={handleCapitalize}/>
       <button onClick={() => setParaValue("")}>Clear</button>
         <p>{paraValue}</p>
     </div>
